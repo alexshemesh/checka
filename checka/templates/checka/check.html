@@ -1,0 +1,12 @@
+{%  extends "checka/base.html" %}
+
+{% block content %}
+    <p>Check: {{ check }}</p>
+    <li>
+        <p>{{ check.date_added }}</p>
+        <p>{{ check.shop }}</p>
+        <p>{{ check.total_amount }}</p>
+
+        <img src="{{ check.photo.url }}" alt="{{ check }}">
+    </li>
+{% endblock content %}

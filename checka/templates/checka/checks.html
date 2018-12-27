@@ -1,0 +1,16 @@
+{%  extends "checka/base.html" %}
+
+{% block content %}
+    <p>Checks</p>
+       <ul>
+           {% for check in checks %}
+               <li>
+                 <a href="{%  url 'checka:check' check.id %}">{{ check }}</a>
+               </li>
+           {% empty %}
+               <li> No checks to display </li>
+           {% endfor %}
+       </ul>
+    <a href="{% url 'checka:new_check' %}">Add a new check:</a>
+
+{% endblock content %}
