@@ -1,8 +1,8 @@
 from django  import forms
-from . models import Check
+from . models import PaymentCheck
 
 class CheckForm(forms.ModelForm):
     class Meta:
-        model = Check
+        model = PaymentCheck
         fields = ['shop','total_amount' , 'photo' ]
 

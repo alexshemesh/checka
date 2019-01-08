@@ -1,0 +1,11 @@
+{% extends "checka/base.html" %}
+
+{% block content %}
+    <p><a href="{% url 'checka:check' check.id %}">{{ check }}</a></p>
+    <p>Edit check:</p>
+    <form action="{% url 'checka:edit_check' check.id %}" method='post'>
+       {% csrf_token %}
+       {{ form.as_p }}
+     <button name="submit">save changes</button>
+ </form>
+{% endblock content %}

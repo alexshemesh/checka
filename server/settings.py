@@ -38,8 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Custom apps
+    'rest_framework',
+    'users',
     'checka',
-    "k8scleaner"
 ]
 
 MIDDLEWARE = [

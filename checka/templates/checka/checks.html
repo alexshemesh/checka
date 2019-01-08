@@ -2,15 +2,24 @@
 
 {% block content %}
     <p>Checks</p>
-       <ul>
-           {% for check in checks %}
-               <li>
-                 <a href="{%  url 'checka:check' check.id %}">{{ check }}</a>
-               </li>
-           {% empty %}
-               <li> No checks to display </li>
-           {% endfor %}
-       </ul>
-    <a href="{% url 'checka:new_check' %}">Add a new check:</a>
-
+    <ul>
+        <table style="width:100%">
+          <tr>
+            <th>Check</th>
+            <th>Commands</th>
+          </tr>
+            {% for check in checks %}
+                <tr>
+                    <td> <a href="{%  url 'checka:check' check.id %}">{{ check }}</a></td>
+                    <td> <a href="{% url 'checka:edit_check' check.id %}">[Edit ...]</a></td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td> No checks to display</td>
+                    <td> </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </ul>
+    <a href="{% url 'checka:new_check' %}">[Add a new check...]</a>
 {% endblock content %}
