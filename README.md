@@ -1,7 +1,9 @@
 # Checka
 
 This is Django app that manages your home budget.
-### For Project Documentation see [project_docs](https://github.com/alexshemesh/checka/tree/master/project_docs) 
+
+# Project Documentation
+For project documentation see [project_docs](https://github.com/alexshemesh/checka/tree/master/project_docs) 
 
 ## Requirements
 1. git client - [Install git client](https://www.atlassian.com/git/tutorials/install-git)
