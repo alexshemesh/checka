@@ -7,14 +7,14 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-    url(r'^checks/$', views.CreateView.as_view(), name="create"),
-    url(r'^checks/(?P<pk>[0-9]+)/$', views.DetailsView.as_view(), name="details"),
-    url(r'^shops/$', views.CreateShopView.as_view(), name="create"),
-    url(r'^shops/(?P<pk>[0-9]+)/$', views.DetailsShopView.as_view(), name="details"),
-    # url(r'^checks/$', views.checks, name='checks'),
-    # url(r'^checks/(?P<check_id>\d+)/$', views.check, name='check'),
-    # url(r'^checks/new_check/$', views.new_check, name='new_check'),
-    # url(r'^checks/edit_check/(?P<check_id>\d+)/$', views.edit_check, name='edit_check'),
+    url(r'^api/v1/checks/$', views.CreateView.as_view(), name="create"),
+    url(r'^api/v1/checks/(?P<pk>[0-9]+)/$', views.DetailsView.as_view(), name="details"),
+    url(r'^api/v1/shops/$', views.CreateShopView.as_view(), name="create"),
+    url(r'^api/v1/shops/(?P<pk>[0-9]+)/$', views.DetailsShopView.as_view(), name="details"),
+    url(r'^checks/$', views.checks, name='checks'),
+    url(r'^checks/(?P<check_id>\d+)/$', views.check, name='check'),
+    url(r'^checks/new_check/$', views.new_check, name='new_check'),
+    url(r'^checks/edit_check/(?P<check_id>\d+)/$', views.edit_check, name='edit_check'),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

@@ -7,28 +7,28 @@ from . models import PaymentCheck,Shop
 from . forms import CheckForm
 from . serializers import CheckSerializer, ShopSerializer
 from django.contrib.auth.models import User
-
+from django.contrib.auth.decorators import login_required
 
 
 def index(request):
     """The home page for k8s cleaner operations"""
     return render(request, 'checka/index.html')
 
-
+@login_required
 def checks(request):
     """Show all topic"""
     checks = PaymentCheck.objects.order_by('date_added')
     context = {'checks': checks }
     return render(request, 'checka/checks.html', context )
 
-
+@login_required
 def check(request, check_id):
     """Show a single topix and all its entries"""
     check = PaymentCheck.objects.get(id=check_id)
     context = {'check': check }
     return render(request, 'checka/check.html', context)
 
-
+@login_required
 def new_check(request):
     if request.method != 'POST':
         form = CheckForm()
@@ -44,7 +44,7 @@ def new_check(request):
     context = {'form': form }
     return render(request, 'checka/new_check.html', context)
 
-
+@login_required
 def edit_check(request, check_id):
         """Edit an existing check."""
         check = PaymentCheck.objects.get(id=check_id)
@@ -61,7 +61,6 @@ def edit_check(request, check_id):
         context = {'check': check,  'form': form}
         return render(request, 'checka/edit_check.html', context)
 
-
 class CreateView(generics.ListCreateAPIView):
     """This class defines the create behavior of our rest api."""
     queryset = PaymentCheck.objects.all()
@@ -77,7 +76,6 @@ class DetailsView(generics.RetrieveUpdateDestroyAPIView):
 
     queryset = PaymentCheck.objects.all()
     serializer_class = CheckSerializer
-
 
 class CreateShopView(generics.ListCreateAPIView):
     """This class defines the create behavior of our rest api."""
